@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Contact from './Contact';
 import { connect } from 'react-redux'
-import { GET_CONTACTS } from '../../actions/types';
 import PropTypes from 'prop-types'
-
+import { getContacts } from '../../actions/contactActions'
 
 class Contacts extends Component {
+  componentDidMount() {
+    this.props.getContacts()
+  }
   render() {
     const { contacts } = this.props;
     return (
@@ -29,11 +31,10 @@ Contacts.propTypes = {
 const mapStateToProps = (state) => ({
   contacts: state.contact.contacts // now contacts are available as a prop.
 })
-const mapDispatchToProps = dispatch => ({
-  getContacts: () => dispatch({ type: GET_CONTACTS })
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Contacts);
+
+
+export default connect(mapStateToProps, { getContacts })(Contacts);
 
 // in connect(param1, param2), param1 is that thing which we want to loop through in props and param2 is a dispatch,
 // param1 is a data inside the redux state
