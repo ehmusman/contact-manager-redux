@@ -22,11 +22,11 @@ class App extends Component {
             <Header branding="Contact Manager" />
             <div className="container">
               <Switch>
-                <Route path="/" render={props => <Contacts {...props} />} />
-                <Route path="/contact/add" render={props => <AddContact {...props} />} />
-                <Route path="/contact/edit/:id" render={props => <EditContact {...props} />} />
-                <Route path="/about" render={props => <About {...props} />} />
-                <Route render={props => <NotFound {...props} />} />
+                <Route exact path="/" render={props => <Contacts {...props} />} />
+                <Route exact path="/contact/add" render={props => <AddContact {...props} />} />
+                <Route exact path="/contact/edit/:id" render={props => <EditContact {...props} />} />
+                <Route exact path="/about" render={props => <About {...props} />} />
+                <Route exact render={props => <NotFound {...props} />} />
               </Switch>
             </div>
           </div>
