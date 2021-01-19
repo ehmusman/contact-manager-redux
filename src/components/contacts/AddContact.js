@@ -5,7 +5,7 @@ import { addingContact } from '../../actions/contactActions'
 import PropTypes from 'prop-types'
 
 import { v1 as uuid } from 'uuid'
-import { ADD_CONTACT } from '../../actions/types';
+
 class AddContact extends Component {
   state = {
     name: '',
