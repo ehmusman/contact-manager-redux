@@ -1,26 +1,9 @@
-import { ADD_CONTACT, DELETE_CONTACT, GET_CONTACTS } from '../actions/types'
+import { ADD_CONTACT, DELETE_CONTACT, GET_CONTACTS, GET_CONTACT, UPDATE_CONTACT } from '../actions/types'
 const initialState = {
     contacts: [
         // now im adding contact using the API
-        // {
-        //     id: 1,
-        //     name: 'usman',
-        //     email: 'usman@gmail.com',
-        //     phone: '555-555-5555'
-        // },
-        // {
-        //     id: 2,
-        //     name: 'ehsan',
-        //     email: 'ehsan@gmail.com',
-        //     phone: '444-444-4444'
-        // },
-        // {
-        //     id: 3,
-        //     name: 'farooq',
-        //     email: 'farooq@gmail.com',
-        //     phone: '333-333-333'
-        // }
-    ]
+    ],
+    contact: {}
 };
 
 const contactReducer = (state = initialState, action) => {
@@ -30,6 +13,15 @@ const contactReducer = (state = initialState, action) => {
                 ...state,
                 contacts: action.payload
             }
+        case GET_CONTACT:
+            return {
+                ...state,
+                contact: action.payload
+            }
+        case UPDATE_CONTACT:
+            return {
+
+            }
         case DELETE_CONTACT:
             return {
                 ...state,
@@ -38,7 +30,7 @@ const contactReducer = (state = initialState, action) => {
         case ADD_CONTACT:
             return {
                 ...state,
-                contacts: [action.payload, ...state.contacts]
+                contacts: [...state.contacts, action.payload]
             }
         default:
             return state

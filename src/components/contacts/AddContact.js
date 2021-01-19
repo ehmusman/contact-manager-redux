@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { addingContact } from '../../actions/contactActions'
 import PropTypes from 'prop-types'
 
-import { v1 as uuid } from 'uuid'
-
 class AddContact extends Component {
   state = {
     name: '',
@@ -36,7 +34,6 @@ class AddContact extends Component {
     }
 
     const newContact = {
-      id: uuid(),
       name,
       email,
       phone
